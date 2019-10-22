@@ -21,3 +21,11 @@ exports.getById = (request, response) => {
 
     response.status(200).send(tarefa)
 }
+
+exports.getTarefa = (request, response) => {
+    const id = request.params.id
+    const tarefa = tarefas.find(tarefa => tarefa.id == id)
+
+    if(!tarefa){
+        response.send('Não tem tarefa hoje')
+    }
